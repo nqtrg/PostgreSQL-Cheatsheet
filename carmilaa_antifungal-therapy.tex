@@ -1,6 +1,7 @@
 \documentclass[10pt,a4paper]{article}
 
 % Packages
+\usepackage[colorlinks=true, urlcolor=black]{hyperref}           % for hyperlink
 \usepackage{fancyhdr}           % For header and footer
 \usepackage{multicol}           % Allows multicols in tables
 \usepackage{tabularx}           % Intelligent column widths
@@ -24,15 +25,21 @@
 %\usepackage[english,german,french,spanish,italian]{babel}              % Languages
 
 % Document Info
-\author{Carm (Carmilaa)}
+\author{Quang-Ngu Truong}
 \pdfinfo{
-  /Title (antifungal-therapy.pdf)
+  /Title (postgresql-fundamentals.pdf)
   /Creator (Cheatography)
-  /Author (Carm (Carmilaa))
-  /Subject (Antifungal Therapy Cheat Sheet)
+  /Author (quangngutruong)
+  /Subject (PostgreSQL Fundamentals Cheat Sheet)
 }
 
 % Lengths and widths
+\newlength{\lengthsubsec}
+\setlength{\lengthsubsec}{7.377cm}
+\newlength{\lengthsecondcol}
+\setlength{\lengthsecondcol}{4.4885cm}
+
+
 \addtolength{\textwidth}{6cm}
 \addtolength{\textheight}{-1cm}
 \addtolength{\hoffset}{-3cm}
@@ -58,8 +65,9 @@
 \definecolor{HeadBackground}{HTML}{333333}
 \definecolor{FootBackground}{HTML}{666666}
 \definecolor{TextColor}{HTML}{333333}
-\definecolor{DarkBackground}{HTML}{9B63A3}
-\definecolor{LightBackground}{HTML}{EEE4EF}
+\definecolor{DarkBackground}{HTML}{17629C}
+% \definecolor{DarkBackground}{HTML}{FFFFFF}
+\definecolor{LightBackground}{HTML}{D7E4EE}
 \renewcommand{\familydefault}{\sfdefault}
 \color{TextColor}
 
@@ -71,49 +79,48 @@
 \noindent
 \begin{multicols}{3}
 \begin{tabulary}{5.8cm}{C}
-    \SetRowColor{DarkBackground}
+    \SetRowColor{LightBackground}
     \vspace{-7pt}
     {\parbox{\dimexpr\textwidth-2\fboxsep\relax}{\noindent
-        \hspace*{-6pt}\includegraphics[width=5.8cm]{/web/www.cheatography.com/public/images/cheatography_logo.pdf}}
+        \hspace*{-6pt}\includegraphics[width=5.8cm]{img/logo.png}}
     }
 \end{tabulary}
 \columnbreak
 \begin{tabulary}{11cm}{L}
-    \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{Antifungal Therapy Cheat Sheet}}}} \\
-    \normalsize{by \textcolor{DarkBackground}{Carm (Carmilaa)} via \textcolor{DarkBackground}{\uline{cheatography.com/49544/cs/16173/}}}
+    \vspace{-2pt}\large{\bf{\textcolor{DarkBackground}{\textrm{PostgreSQL Fundamentals Cheat Sheet}}}} \\
+    \normalsize{by \textcolor{DarkBackground}{Quang-Ngu Truong}}
 \end{tabulary}
 \end{multicols}}
 
-\fancyfoot[L]{ \footnotesize
-\noindent
-\begin{multicols}{3}
-\begin{tabulary}{5.8cm}{LL}
-  \SetRowColor{FootBackground}
-  \mymulticolumn{2}{p{5.377cm}}{\bf\textcolor{white}{Cheatographer}}  \\
-  \vspace{-2pt}Carm (Carmilaa) \\
-  \uline{cheatography.com/carmilaa} \\
-  \end{tabulary}
-\vfill
-\columnbreak
-\begin{tabulary}{5.8cm}{L}
-  \SetRowColor{FootBackground}
-  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Cheat Sheet}}  \\
-   \vspace{-2pt}Published 24th June, 2018.\\
-   Updated 24th June, 2018.\\
-   Page {\thepage} of \pageref{LastPage}.
-\end{tabulary}
-\vfill
-\columnbreak
-\begin{tabulary}{5.8cm}{L}
-  \SetRowColor{FootBackground}
-  \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Sponsor}}  \\
-  \SetRowColor{white}
-  \vspace{-5pt}
-  %\includegraphics[width=48px,height=48px]{dave.jpeg}
-  Measure your website readability!\\
-  www.readability-score.com
-\end{tabulary}
-\end{multicols}}
+% \fancyfoot[L]{ \footnotesize
+% \noindent
+% \begin{multicols}{3}
+% \begin{tabulary}{5.8cm}{LL}
+%   \SetRowColor{FootBackground}
+%   \mymulticolumn{2}{p{5.377cm}}{\bf\textcolor{white}{Cheatographer}}  \\
+%   \vspace{-2pt}mkpeacock \\
+%   \uline{cheatography.com/mkpeacock} \\
+%   \end{tabulary}
+% \vfill
+% \columnbreak
+% \begin{tabulary}{5.8cm}{L}
+%   \SetRowColor{FootBackground}
+%   \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Cheat Sheet}}  \\
+%    \vspace{-2pt}Published 25th July, 2012.\\
+%    Updated 5th June, 2014.\\
+%    Page {\thepage} of \pageref{LastPage}.
+% \end{tabulary}
+% \vfill
+% \columnbreak
+% \begin{tabulary}{5.8cm}{L}
+%   \SetRowColor{FootBackground}
+%   \mymulticolumn{1}{p{5.377cm}}{\bf\textcolor{white}{Sponsor}}  \\
+%   \SetRowColor{white}
+%   \vspace{-5pt}
+%   %\includegraphics[width=48px,height=48px]{dave.jpeg}
+%   ABX
+% \end{tabulary}
+% \end{multicols}}
 
 
 
@@ -127,300 +134,176 @@
 % www.emerson.emory.edu/services/latex/latex_169.html
 \footnotesize % Small font.
 
-\begin{multicols*}{3}
+\begin{multicols*}{2}
 
-\begin{tabularx}{5.377cm}{x{3.33459 cm} x{1.64241 cm} }
+\begin{tabularx}{\lengthsubsec}{x{2.4885 cm} x{4.4885 cm} }
 \SetRowColor{DarkBackground}
-\mymulticolumn{2}{x{5.377cm}}{\bf\textcolor{white}{Fungal Infections}}  \tn
+\mymulticolumn{2}{x{\lengthsubsec}}{\bf\textcolor{white}{Setup}}  \tn
 % Row 0
 \SetRowColor{LightBackground}
-"Opportunistic Infections": & Candidiasis: \tn 
-% Row Count 2 (+ 2)
+Connect & \texttt{psql -U <username> -d <database> -h <hostname>} \tn 
+% Row Count 1 (+ 1)
 % Row 1
 \SetRowColor{white}
-- Wide spread use of broad spectrum of Antibiotics & - Elderly \tn 
-% Row Count 4 (+ 2)
+Disconnect & \texttt{\textbackslash{}q} \tn
+           & or: \tn
+           & \texttt{\textbackslash{}!} \tn
+% Row Count 2 (+ 1)
 % Row 2
 \SetRowColor{LightBackground}
-- HIV patients & - Diabetic patients \tn 
+Show system status & \texttt{\textbackslash{}conninfo} \tn 
 % Row Count 6 (+ 2)
-% Row 3
-\SetRowColor{white}
-- Immunosuppressants and cancer chemotherapy patients & - Pregnant women \tn 
-% Row Count 9 (+ 3)
-% Row 4
-\SetRowColor{LightBackground}
- & - Burn wound victims \tn 
-% Row Count 11 (+ 2)
 \hhline{>{\arrayrulecolor{DarkBackground}}--}
 \end{tabularx}
 \par\addvspace{1.3em}
 
-\begin{tabularx}{5.377cm}{X}
+
+%
+%--------General Information------------
+%
+\begin{tabularx}{\lengthsubsec}{x{2.4885 cm} x{4.4885 cm} }
 \SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Fungal Infection Treatments}}  \tn
+\mymulticolumn{2}{x{\lengthsubsec}}{\bf\textcolor{white}{General Information}}  \tn
+% 
 \SetRowColor{LightBackground}
-\mymulticolumn{1}{p{5.377cm}}{\vspace{1px}\centerline{\includegraphics[width=5.1cm]{/web/www.cheatography.com/public/uploads/carmilaa_1529861151_image7.png}}} \tn 
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
+List users & \texttt{SELECT rolname FROM pg\_roles;} \tn 
+% 
+\SetRowColor{white}
+Show current user & \texttt{SELECT current\_user;} \tn
+% 
+\SetRowColor{LightBackground}
+Show current user's permissions & \texttt{\textbackslash{}du} \tn 
+%
+\SetRowColor{white}
+List databases & \texttt{\textbackslash{}l} \tn
+% 
+% 
+\SetRowColor{LightBackground}
+Show current database & \texttt{SELECT current\_database();} \tn 
+%
+\SetRowColor{white}
+Show all tables in database & \texttt{\textbackslash{}dt} \tn
+% 
+\SetRowColor{LightBackground}
+List functions & \texttt{\textbackslash{}df <schema>} \tn
+% 
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
 \end{tabularx}
 \par\addvspace{1.3em}
 
-\begin{tabularx}{5.377cm}{X}
+
+%
+%--------Database------------
+%
+\begin{tabularx}{\lengthsubsec}{x{2.4885 cm} x{4.4885 cm} }
 \SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Superficial Fungal Infections:}}  \tn
-% Row 0
+\mymulticolumn{2}{x{\lengthsubsec}}{\bf\textcolor{white}{Database}}  \tn
+% 
 \SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{Dermatomycoses: skin, hair, nails (onychomycoses)} \tn 
-% Row Count 1 (+ 1)
-% Row 1
+Connect to database & \texttt{\textbackslash{}c <database\_name>} \tn 
+% 
 \SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Candidiasis} \tn 
-% Row Count 2 (+ 1)
-% Row 2
+\href{http://www.postgresql.org/docs/current/static/sql-createdatabase.html}{Create database} & \texttt{CREATE DATABASE <database\_name> WITH OWNER <username>;} \tn
+% 
 \SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- Tinea versicolor} \tn 
-% Row Count 3 (+ 1)
-% Row 3
+\href{http://www.postgresql.org/docs/current/static/sql-dropdatabase.html}{Drop database} & \texttt{DROP DATABASE IF EXISTS <database\_name>;} \tn 
+%
 \SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Dermatophytoses} \tn 
-% Row Count 4 (+ 1)
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\href{http://www.postgresql.org/docs/current/static/sql-alterdatabase.html}{Rename database} & \texttt{ALTER DATABASE <old\_name> RENAME TO <new\_name>;} \tn
+%
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
 \end{tabularx}
 \par\addvspace{1.3em}
 
-\begin{tabularx}{5.377cm}{X}
+
+%
+%--------User------------
+%
+\begin{tabularx}{\lengthsubsec}{x{2.4885 cm} x{4.4885 cm} }
 \SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Dermatophytoses:}}  \tn
-% Row 0
+\mymulticolumn{2}{x{\lengthsubsec}}{\bf\textcolor{white}{User}}  \tn
+% 
 \SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- {\emph{Trichophyton, Microsporum, Epidermophyton}}} \tn 
-% Row Count 1 (+ 1)
-% Row 1
+List roles & \texttt{SELECT rolname FROM pg\_roles;} \tn 
+% 
 \SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Tinea capitis} \tn 
-% Row Count 2 (+ 1)
-% Row 2
+\href{http://www.postgresql.org/docs/current/static/sql-createuser.html}{Create user} & \texttt{CREATE USER <user\_name> WITH PASSWORD '<password>';} \tn
+% 
 \SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- Tinea cruris} \tn 
-% Row Count 3 (+ 1)
-% Row 3
+\href{http://www.postgresql.org/docs/current/static/sql-dropuser.html}{Drop user} & \texttt{DROP USER IF EXISTS <user\_name>;} \tn 
+%
 \SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Tinea pedis} \tn 
-% Row Count 4 (+ 1)
-% Row 4
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- Tinea corporis ({\bf{Treatment}}: Clotrimazole 2\% cream, apply tds for 2 weeks after lesion has cleared)} \tn 
-% Row Count 7 (+ 3)
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{{\bf{Clinical Features:}} \newline - Itchy ring-like patches  \newline - Raised borders \newline - Patches slowly grow bigger = as patches extend, a clear area develops in the center which may become hyperpigmented in dark skin.}  \tn 
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\href{http://www.postgresql.org/docs/current/static/sql-alterrole.html}{Alter user password} & \texttt{ALTER ROLE <user\_name> WITH PASSWORD '<password>';} \tn
+%
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
 \end{tabularx}
 \par\addvspace{1.3em}
 
-\begin{tabularx}{5.377cm}{X}
+
+%
+%--------Table------------
+%
+\begin{tabularx}{\lengthsubsec}{x{2.4885 cm} x{4.4885 cm} }
 \SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Tinea Versicolor:}}  \tn
-% Row 0
+\mymulticolumn{2}{x{\lengthsubsec}}{\bf\textcolor{white}{Table}}  \tn
+% 
 \SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- also implicated for dandruff/ seborrhoeic dermatittis} \tn 
-% Row Count 2 (+ 2)
-% Row 1
+List tables in current database & \texttt{\textbackslash{}dt} \tn
+% 
 \SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Selenium sulphide (Selsun)} \tn 
-% Row Count 3 (+ 1)
-% Row 2
+Globally list tables & \texttt{\textbackslash{} *.*} \tn
+%
 \SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- Zinc pyrithoine (Head and Shoulders)} \tn 
-% Row Count 4 (+ 1)
-% Row 3
+\href{http://www.postgresql.org/docs/current/static/sql-createtable.html}{Create table} & \texttt{CREATE TABLE <table\_name>(
+  <column\_name> <column\_type>,
+  <column\_name> <column\_type>
+);} \tn 
+%
 \SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Soap: Sulphur (10\%) and Salicylic acid (3\%)} \tn 
-% Row Count 5 (+ 1)
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\href{http://www.postgresql.org/docs/current/static/sql-droptable.html}{Drop table} & \texttt{DROP TABLE IF EXISTS <table\_name> CASCADE;} \tn
+% 
+
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
 \end{tabularx}
 \par\addvspace{1.3em}
 
-\begin{tabularx}{5.377cm}{X}
+
+%
+%--------Scripting------------
+%
+\begin{tabularx}{\lengthsubsec}{x{2.4885 cm} x{4.4885 cm} }
 \SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Oral Candidiasis (Thrush):}}  \tn
-% Row 0
+\mymulticolumn{2}{x{\lengthsubsec}}{\bf\textcolor{white}{Scripting}}  \tn
+% 
 \SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- Presents: painful creamy white patches, can be scraped off tongue and buccal mucosa.} \tn 
-% Row Count 2 (+ 2)
-% Row 1
+\href{http://www.postgresql.org/docs/current/static/app-pgdump.html}{Backup database} & \texttt{pg\_dump <database\_name>} \tn 
+%
 \SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Common in healthy babies (up to 1mo)} \tn 
-% Row Count 3 (+ 1)
-% Row 2
+\href{http://www.postgresql.org/docs/current/static/app-pgrestore.html}{Restore table} & \texttt{pg\_restore -d <database\_name> -a <file\_pathway>} \tn
+% 
+
 \SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- {\bf{Risk Factors:}} Poor Oral Hygiene, Immunosuppression, Prolonged use of broad spectrum antibiotics or corticosteroids (including inhaled), Certain chronic diseases, Trauma} \tn 
-% Row Count 7 (+ 4)
-% Row 3
+\href{http://www.postgresql.org/docs/current/static/sql-copy.html}{Export table into CSV file} & \texttt{\textbackslash{}copy <table\_name> TO '<file\_path>' CSV} \tn 
+%
 \SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- {\bf{General Measures:}} Identify underlying cause, Improve oral hygiene, Ensure proper fitting dentures} \tn 
-% Row Count 10 (+ 3)
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{{\bf{Treatment:}}  \newline - Nystatin suspension, oral, 100 000 IU/mL, 1ml, 6 hourly after each meal/feed for 7 days.  \newline = Keep in contact with affected area for as long as possible prior to swallowing \newline = In older children, ask child to swirl in mouth prior to swallowing \newline = In infants: apply to front of mouth and spread around mouth with clean finger \newline = continue for 48hrs after cure}  \tn 
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
+\href{http://www.postgresql.org/docs/current/static/sql-copy.html}{Import CSV file into table} & \texttt{\textbackslash{}copy <table\_name> FROM '<file\_path>' CSV} \tn
+%
+
+\hhline{>{\arrayrulecolor{DarkBackground}}--}
 \end{tabularx}
 \par\addvspace{1.3em}
 
-\begin{tabularx}{5.377cm}{X}
-\SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Tinea Capitis:}}  \tn
-% Row 0
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{Round or patchy bald areas with scales and stumps of broken of hair} \tn 
-% Row Count 2 (+ 2)
-% Row 1
-\SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{Avoid shaving head in children} \tn 
-% Row Count 3 (+ 1)
-% Row 2
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{Don't share combs and hair brushes = Contagious} \tn 
-% Row Count 4 (+ 1)
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{{\bf{Treatment:}}  \newline - Children: Fluconazole, oral, 6mg/kg once daily for 28 days \newline - Adults: Fluconazole, oral, 200mg once daily for 28 days}  \tn 
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
-\end{tabularx}
-\par\addvspace{1.3em}
+%
+%--------Additional Information------------
+%
+\textbf{Debugging:} \href{http://www.postgresql.org/docs/current/static/using-explain.html}{\textcolor{DarkBackground}{http://www.postgresql.org/docs/current/static/using-explain.html}}
 
-\begin{tabularx}{5.377cm}{X}
-\SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Systemic (Disseminated) Fungal Infections:}}  \tn
-% Row 0
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- Cryptococcal meningitis} \tn 
-% Row Count 1 (+ 1)
-% Row 1
-\SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Candidiasis} \tn 
-% Row Count 2 (+ 1)
-% Row 2
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- Pulmonary aspergillosis} \tn 
-% Row Count 3 (+ 1)
-% Row 3
-\SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Histoplasmosis} \tn 
-% Row Count 4 (+ 1)
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
-\end{tabularx}
-\par\addvspace{1.3em}
+\href{http://www.postgresql.org/docs/current/static/runtime-config-logging.html}{\textcolor{DarkBackground}{http://www.postgresql.org/docs/current/static/runtime-config-logging.html }}
 
-\begin{tabularx}{5.377cm}{X}
-\SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Candida Oesophagitis:}}  \tn
-% Row 0
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- Oesophageal involement in HIV infected patients with oral candidiasis who have pain or difficulty swallowing} \tn 
-% Row Count 3 (+ 3)
-% Row 1
-\SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Maintain hydration} \tn 
-% Row Count 4 (+ 1)
-% Row 2
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- Fluconazole 200,g po daily for 14 days} \tn 
-% Row Count 5 (+ 1)
-% Row 3
-\SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Refer: unable to swallow, poor response to fluconazole} \tn 
-% Row Count 7 (+ 2)
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
-\end{tabularx}
-\par\addvspace{1.3em}
 
-\begin{tabularx}{5.377cm}{X}
-\SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Antifungal: Mechanisms of Action}}  \tn
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{p{5.377cm}}{\vspace{1px}\centerline{\includegraphics[width=5.1cm]{/web/www.cheatography.com/public/uploads/carmilaa_1529865413_image8.png}}} \tn 
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
-\end{tabularx}
-\par\addvspace{1.3em}
+\textbf{Advanced Features:} \href{http://www.tutorialspoint.com/postgresql/postgresql\_constraints.htm}{\textcolor{DarkBackground}{http://www.tutorialspoint.com/postgresql/postgresql\_constraints.htm}}
+%
 
-\begin{tabularx}{5.377cm}{X}
-\SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Classes of Antifungal Treatment}}  \tn
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{p{5.377cm}}{\vspace{1px}\centerline{\includegraphics[width=5.1cm]{/web/www.cheatography.com/public/uploads/carmilaa_1529865559_image9.png}}} \tn 
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
-\end{tabularx}
-\par\addvspace{1.3em}
-
-\begin{tabularx}{5.377cm}{X}
-\SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Amphoteracin B:}}  \tn
-% Row 0
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- {\bf{Drug of Choice}} of severe systemic mycoses} \tn 
-% Row Count 1 (+ 1)
-% Row 1
-\SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- pks: administered IV, eliminated slowly in urine} \tn 
-% Row Count 2 (+ 1)
-% Row 2
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- !!nephrotoxicity, hypokalemia} \tn 
-% Row Count 3 (+ 1)
-% Row 3
-\SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- High probability of AEs: drugs tox and administration} \tn 
-% Row Count 5 (+ 2)
-% Row 4
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- NB: toxicity monitoring (dosage and duration NB)} \tn 
-% Row Count 6 (+ 1)
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
-\end{tabularx}
-\par\addvspace{1.3em}
-
-\begin{tabularx}{5.377cm}{X}
-\SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Nystatin}}  \tn
-% Row 0
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- GI absorption is negligible} \tn 
-% Row Count 1 (+ 1)
-% Row 1
-\SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- Most of dose excreted in stool} \tn 
-% Row Count 2 (+ 1)
-% Row 2
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- safe in pregnancy} \tn 
-% Row Count 3 (+ 1)
-% Row 3
-\SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{- MOA: same as amphoteracin B} \tn 
-% Row Count 4 (+ 1)
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
-\end{tabularx}
-\par\addvspace{1.3em}
-
-\begin{tabularx}{5.377cm}{X}
-\SetRowColor{DarkBackground}
-\mymulticolumn{1}{x{5.377cm}}{\bf\textcolor{white}{Fluconazole:}}  \tn
-% Row 0
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{Treatment for: Candidiasis, CCM (maintenance txt)} \tn 
-% Row Count 1 (+ 1)
-% Row 1
-\SetRowColor{white}
-\mymulticolumn{1}{x{5.377cm}}{Pks: D-wide, CFS; Unchanged in urine (DA)} \tn 
-% Row Count 2 (+ 1)
-% Row 2
-\SetRowColor{LightBackground}
-\mymulticolumn{1}{x{5.377cm}}{- WEAK INHIBITOR of P450} \tn 
-% Row Count 3 (+ 1)
-\hhline{>{\arrayrulecolor{DarkBackground}}-}
-\end{tabularx}
-\par\addvspace{1.3em}
 
 
 % That's all folks
