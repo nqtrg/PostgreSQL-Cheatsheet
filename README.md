@@ -1,1 +1,1 @@
-![cheatsheet](cheatsheet.pdf)
+![cheatsheet](cheatsheet.png)
